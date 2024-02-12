@@ -1,4 +1,4 @@
-package coder.bekhzod
+package coder.bekhzod.presentation.activities
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
