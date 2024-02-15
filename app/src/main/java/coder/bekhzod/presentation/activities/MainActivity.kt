@@ -11,13 +11,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import coder.bekhzod.presentation.screens.EmptyMainScreen
+import coder.bekhzod.presentation.screens.SplashScreen
 import coder.bekhzod.presentation.ui.theme.INoteTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            EmptyMainScreen()
+            SplashScreen()
         }
     }
 }
