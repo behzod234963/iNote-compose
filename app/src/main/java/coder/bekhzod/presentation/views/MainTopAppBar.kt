@@ -2,6 +2,8 @@ package coder.bekhzod.presentation.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -22,7 +24,8 @@ import coder.bekhzod.presentation.ui.theme.fontAmidoneGrotesk
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainTopAppBar() {
+fun MainTopAppBar(filterState:((Boolean)->Unit)) {
+
     TopAppBar(
         modifier = Modifier
             .background(Color.Black)
@@ -41,7 +44,7 @@ fun MainTopAppBar() {
         },
         actions = {
             IconButton(onClick = {
-
+                    filterState.invoke(false)
             }) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_filter),
@@ -65,5 +68,5 @@ fun MainTopAppBar() {
 @Preview
 @Composable
 fun PreviewNoteAppBar() {
-    MainTopAppBar()
+    MainTopAppBar(false)
 }
