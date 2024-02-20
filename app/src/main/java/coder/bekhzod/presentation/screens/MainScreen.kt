@@ -33,6 +33,7 @@ import coder.bekhzod.presentation.views.MainTopAppBar
 
 @Composable
 fun MainScreen() {
+    val filterOnClick = MainTopAppBar()
     Box(
         modifier = Modifier
             .fillMaxSize()

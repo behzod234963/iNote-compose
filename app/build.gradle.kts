@@ -56,6 +56,7 @@ dependencies {
     val hilt_version = "2.50"
     val room_version = "2.6.1"
     val lottie_version = "6.1.0"
+    val nav_version = "2.7.6"
 
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
@@ -83,4 +84,7 @@ dependencies {
 
 //    Lottie animations
     implementation ("com.airbnb.android:lottie-compose:$lottie_version")
+
+    //Navigation in compose
+    implementation("androidx.navigation:navigation-compose:$nav_version")
 }

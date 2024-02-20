@@ -11,6 +11,9 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
@@ -24,8 +27,7 @@ import coder.bekhzod.presentation.ui.theme.fontAmidoneGrotesk
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainTopAppBar(filterState:((Boolean)->Unit)) {
-
+fun MainTopAppBar() {
     TopAppBar(
         modifier = Modifier
             .background(Color.Black)
@@ -44,7 +46,7 @@ fun MainTopAppBar(filterState:((Boolean)->Unit)) {
         },
         actions = {
             IconButton(onClick = {
-                    filterState.invoke(false)
+
             }) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_filter),
@@ -68,5 +70,5 @@ fun MainTopAppBar(filterState:((Boolean)->Unit)) {
 @Preview
 @Composable
 fun PreviewNoteAppBar() {
-    MainTopAppBar(false)
+    MainTopAppBar()
 }
