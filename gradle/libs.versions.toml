@@ -1,4 +1,5 @@
 [versions]
+javaxVersion = "1"
 navVersion = "2.7.7"
 lottieVersion = "6.1.0"
 roomVersion = "2.6.1"
