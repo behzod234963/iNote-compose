@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "iNote"
 include(":app")
+include(":data")
+include(":domain")

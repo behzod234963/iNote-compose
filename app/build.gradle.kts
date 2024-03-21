@@ -68,6 +68,8 @@ dependencies {
     androidTestImplementation(libs.uiTestJunit4)
     debugImplementation(libs.androidDebugTooling)
     debugImplementation(libs.androidTestManifest)
+    implementation(project(":data"))
+    implementation(project(":domain"))
 
 //        Dagger Hilt
     implementation (libs.daggerHilt)

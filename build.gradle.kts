@@ -11,4 +11,6 @@ plugins {
     alias(libs.plugins.androidApplicaton) apply false
     alias(libs.plugins.jetBrainsKotlin) apply false
     alias(libs.plugins.daggerHiltPlugin) apply false
+    alias(libs.plugins.androidLibrary) apply false
+    alias(libs.plugins.jetbrainsKotlinJvm) apply false
 }

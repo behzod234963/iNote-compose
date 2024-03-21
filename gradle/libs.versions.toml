@@ -1,5 +1,5 @@
 [versions]
-navVersion = "2.7.6"
+navVersion = "2.7.7"
 lottieVersion = "6.1.0"
 roomVersion = "2.6.1"
 daggerHiltVersion = "2.50"
@@ -13,6 +13,9 @@ junitVersion = "4.13.2"
 extJunitVersion = "1.1.5"
 espressoVersion = "3.5.1"
 androidTestComposeBomVersion = "2024.03.00"
+appcompatVersion = "1.6.1"
+materialVersion = "1.11.0"
+jetbrainsKotlinJvmVersion = "1.9.0"
 
 [libraries]
 androidDebugTooling = {group = "androidx.compose.ui",name = "ui-tooling"}
@@ -37,8 +40,12 @@ room = {group = "androidx.room",name = "room-runtime",version.ref = "roomVersion
 roomKaptCompiler = {group = "androidx.room",name = "room-compiler",version.ref = "roomVersion"}
 lottieAnimations = {group = "com.airbnb.android",name = "lottie-compose",version.ref = "lottieVersion"}
 navigation = {group = "androidx.navigation",name = "navigation-compose",version.ref = "navVersion"}
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompatVersion" }
+material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
 
 [plugins]
 androidApplicaton = {id = "com.android.application",version.ref = "agpVersion"}
 jetBrainsKotlin = {id = "org.jetbrains.kotlin.android",version.ref = "kotlinVersion"}
 daggerHiltPlugin = {id = "com.google.dagger.hilt.android",version.ref = "daggerHiltVersion"}
+androidLibrary = { id = "com.android.library", version.ref = "agpVersion" }
+jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvmVersion" }
