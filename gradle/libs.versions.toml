@@ -1,0 +1,44 @@
+[versions]
+navVersion = "2.7.6"
+lottieVersion = "6.1.0"
+roomVersion = "2.6.1"
+daggerHiltVersion = "2.50"
+kotlinVersion = "1.9.0"
+agpVersion = "8.3.1"
+androidCore = "1.12.0"
+androidLifecycle = "2.7.0"
+androidComposeActivity = "1.8.2"
+androidComposeBom = "2024.03.00"
+junitVersion = "4.13.2"
+extJunitVersion = "1.1.5"
+espressoVersion = "3.5.1"
+androidTestComposeBomVersion = "2024.03.00"
+
+[libraries]
+androidDebugTooling = {group = "androidx.compose.ui",name = "ui-tooling"}
+androidTestManifest = {group = "androidx.compose.ui",name = "ui-test-manifest"}
+uiTestJunit4 = {group = "androidx.compose.ui",name = "ui-test-junit4"}
+androidTestComposeBom = {group = "androidx.compose",name = "compose-bom",version.ref = "androidTestComposeBomVersion"}
+espresso = {group = "androidx.test.espresso",name = "espresso-core",version.ref = "espressoVersion"}
+extJunit = {group = "androidx.test.ext",name = "junit",version.ref = "extJunitVersion"}
+junit = {group = "junit",name = "junit",version.ref = "junitVersion"}
+androidComposeBom = {group = "androidx.compose",name = "compose-bom",version.ref = "androidComposeBom"}
+androidComposeUi = {group = "androidx.compose.ui",name = "ui"}
+androidComposeUiGraphics = {group = "androidx.compose.ui",name = "ui-graphics"}
+androidComposeUiToolingPreview = {group = "androidx.compose.ui",name = "ui-tooling-preview"}
+androidComposeMaterial3 = {group = "androidx.compose.material3",name = "material3"}
+androidComposeActivity = {group = "androidx.activity",name = "activity-compose",version.ref = "androidComposeActivity"}
+androidLifecycle = {group = "androidx.lifecycle",name = "lifecycle-runtime-ktx",version.ref = "androidLifecycle"}
+androidCore = {group = "androidx.core",name = "core-ktx",version.ref = "androidCore"}
+daggerHilt = {group = "com.google.dagger",name = "hilt-android",version.ref = "daggerHiltVersion"}
+daggerHiltCompiler = {group = "com.google.dagger",name = "hilt-compiler",version.ref = "daggerHiltVersion"}
+daggerHiltGradlePlugin = {group = "com.google.dagger",name = "hilt-android-gradle-plugin",version.ref = "daggerHiltVersion"}
+room = {group = "androidx.room",name = "room-runtime",version.ref = "roomVersion"}
+roomKaptCompiler = {group = "androidx.room",name = "room-compiler",version.ref = "roomVersion"}
+lottieAnimations = {group = "com.airbnb.android",name = "lottie-compose",version.ref = "lottieVersion"}
+navigation = {group = "androidx.navigation",name = "navigation-compose",version.ref = "navVersion"}
+
+[plugins]
+androidApplicaton = {id = "com.android.application",version.ref = "agpVersion"}
+jetBrainsKotlin = {id = "org.jetbrains.kotlin.android",version.ref = "kotlinVersion"}
+daggerHiltPlugin = {id = "com.google.dagger.hilt.android",version.ref = "daggerHiltVersion"}

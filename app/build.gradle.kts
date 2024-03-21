@@ -1,8 +1,8 @@
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    alias(libs.plugins.androidApplicaton)
+    alias(libs.plugins.jetBrainsKotlin)
+    alias(libs.plugins.daggerHiltPlugin)
     id("kotlin-kapt")
-    id ("com.google.dagger.hilt.android")
 }
 
 android {
@@ -53,38 +53,33 @@ android {
 
 dependencies {
 
-    val hilt_version = "2.50"
-    val room_version = "2.6.1"
-    val lottie_version = "6.1.0"
-    val nav_version = "2.7.6"
+    implementation(libs.androidCore)
+    implementation(libs.androidLifecycle)
+    implementation(libs.androidComposeActivity)
+    implementation(platform(libs.androidComposeBom))
+    implementation(libs.androidComposeUi)
+    implementation(libs.androidComposeUiGraphics)
+    implementation(libs.androidComposeUiToolingPreview)
+    implementation(libs.androidComposeMaterial3)
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.extJunit)
+    androidTestImplementation(libs.espresso)
+    androidTestImplementation(platform(libs.androidTestComposeBom))
+    androidTestImplementation(libs.uiTestJunit4)
+    debugImplementation(libs.androidDebugTooling)
+    debugImplementation(libs.androidTestManifest)
 
-    implementation("androidx.core:core-ktx:1.12.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
-    implementation("androidx.activity:activity-compose:1.8.2")
-    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    implementation("androidx.compose.material3:material3")
-    testImplementation("junit:junit:4.13.2")
-    androidTestImplementation("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
-    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
-
-    //    Dagger Hilt
-    implementation ("com.google.dagger:hilt-android:$hilt_version")
-    kapt ("com.google.dagger:hilt-compiler:$hilt_version")
+//        Dagger Hilt
+    implementation (libs.daggerHilt)
+    kapt (libs.daggerHiltCompiler)
 
     //    Room Database
-    implementation("androidx.room:room-runtime:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
+    implementation(libs.room)
+    kapt(libs.roomKaptCompiler)
 
 //    Lottie animations
-    implementation ("com.airbnb.android:lottie-compose:$lottie_version")
+    implementation (libs.lottieAnimations)
 
     //Navigation in compose
-    implementation("androidx.navigation:navigation-compose:$nav_version")
+    implementation(libs.navigation)
 }
