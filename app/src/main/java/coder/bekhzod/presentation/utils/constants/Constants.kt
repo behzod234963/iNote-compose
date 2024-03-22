@@ -1,7 +1,16 @@
 package coder.bekhzod.presentation.utils.constants
 
-const val  MAIN_TOP_APP_BAR_KEY = "main_top_app_bar_key"
+import coder.behzod.domain.model.NotesModel
 
-sealed class PassDataEvents{
-    data class PassStatus(val status:Boolean):PassDataEvents()
+const val MAIN_TOP_APP_BAR_KEY = "main_top_app_bar_key"
+
+sealed class PassDataEvents {
+    data class PassStatus(val status: Boolean) : PassDataEvents()
 }
+
+val NOTES_MODEL_OBJECT =
+    NotesModel(
+        title = "Behzod",
+        note = "Xudoybergenov",
+        dataAdded = "22.03.2024"
+    )

@@ -84,7 +84,9 @@ fun MainTopAppBar() {
             contentAlignment = Alignment.TopEnd
         ){
             IconButton(
-                onClick = { /*TODO*/ }
+                onClick = {
+
+                }
             ) {
                Icon(
                    painter = painterResource(
