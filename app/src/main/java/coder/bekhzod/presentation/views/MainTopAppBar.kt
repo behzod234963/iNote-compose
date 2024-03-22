@@ -5,6 +5,8 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -28,51 +30,22 @@ import androidx.compose.ui.unit.sp
 import coder.bekhzod.R
 import coder.bekhzod.presentation.ui.theme.fontAmidoneGrotesk
 
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun MainTopAppBar() {
-    TopAppBar(
-        modifier = Modifier
-            .background(Color.Black)
-            .border(color = Color.White, width = 1.dp),
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = Color.Black
-        ),
-        title = {
-            Text(
-                text = "iNote",
-                color = Color.White,
-                fontSize = 25.sp,
-                fontWeight = FontWeight(700),
-                fontFamily = FontFamily(fontAmidoneGrotesk)
-            )
-        },
-        actions = {
-            Column(
-                verticalArrangement = Arrangement.Center,
-                horizontalAlignment = Alignment.CenterHorizontally,
-                modifier = Modifier
-                    .size(50.dp)
-            ) {
-                AnimatedDropDownMenu {
-
-                }
-            }
-            IconButton(onClick = {
-
-            }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.ic_more),
-                    contentDescription = "button more",
-                    tint = Color.White
-                )
-            }
-        }
-    )
-}
-
-@Preview
-@Composable
-fun PreviewNoteAppBar() {
-    MainTopAppBar()
-}
+//@OptIn(ExperimentalMaterial3Api::class)
+//@Composable
+//fun MainTopAppBar() {
+//    Row {
+//        title = {
+//
+//        }
+//
+//            IconButton(onClick = {
+//
+//            }) {
+//                Icon(
+//                    painter = painterResource(id = R.drawable.ic_more),
+//                    contentDescription = "button more",
+//                    tint = Color.White
+//                )
+//            }
+//        }
+//    }

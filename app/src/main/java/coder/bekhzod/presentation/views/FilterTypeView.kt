@@ -1,5 +1,6 @@
 package coder.bekhzod.presentation.views
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -33,6 +34,7 @@ fun FilterTypeView() {
         modifier = Modifier
             .fillMaxWidth()
             .height(80.dp)
+            .background(Color.Black)
             .border(width = 1.dp, color = Color.White)
     ) {
         Column(

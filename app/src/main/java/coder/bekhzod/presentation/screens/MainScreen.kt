@@ -29,11 +29,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coder.bekhzod.R
-import coder.bekhzod.presentation.views.MainTopAppBar
 
 @Composable
 fun MainScreen() {
-    val filterOnClick = MainTopAppBar()
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -44,7 +42,7 @@ fun MainScreen() {
                 .background(Color.Black)
                 .border(width = 1.dp, color = Color.White)
         ) {
-            MainTopAppBar()
+
         }
         FloatingActionButton(
             modifier = Modifier
