@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -29,6 +30,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coder.bekhzod.R
+import coder.bekhzod.presentation.views.MainTopAppBar
 
 @Composable
 fun MainScreen() {
@@ -42,7 +44,13 @@ fun MainScreen() {
                 .background(Color.Black)
                 .border(width = 1.dp, color = Color.White)
         ) {
+            MainTopAppBar()
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxWidth()
+            ) {
 
+            }
         }
         FloatingActionButton(
             modifier = Modifier
