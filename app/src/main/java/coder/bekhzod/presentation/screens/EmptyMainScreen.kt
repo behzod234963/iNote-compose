@@ -15,14 +15,16 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import coder.bekhzod.R
+import coder.bekhzod.presentation.navigation.ScreensRouter
 import coder.bekhzod.presentation.views.MainTopAppBar
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.rememberLottieComposition
 
 @Composable
-fun EmptyMainScreen() {
+fun EmptyMainScreen(navController: NavController) {
     val lottieComposition = rememberLottieComposition(
         spec = LottieCompositionSpec.RawRes(resId = R.raw.empty_list)
     )
@@ -35,7 +37,7 @@ fun EmptyMainScreen() {
                 .fillMaxSize()
                 .background(Color.Black),
         ) {
-            MainTopAppBar()
+            MainTopAppBar(navController)
         }
         Box(
             modifier = Modifier
@@ -54,7 +56,7 @@ fun EmptyMainScreen() {
                     .padding(bottom = 30.dp, end = 30.dp),
                 shape = CircleShape,
                 containerColor = Color.Magenta,
-                onClick = { /*TODO*/ }
+                onClick = {  }
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_add),
@@ -64,10 +66,4 @@ fun EmptyMainScreen() {
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun PreviewEmptyMainScreen() {
-    EmptyMainScreen()
 }

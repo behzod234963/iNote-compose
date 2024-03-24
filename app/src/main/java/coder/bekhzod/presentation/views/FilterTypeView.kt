@@ -53,7 +53,7 @@ fun FilterTypeView() {
                         .padding(end = 5.dp),
                     selected = radioButtonAState.value,
                     onClick = {
-                        radioButtonAState.value = !radioButtonAState.value
+                        radioButtonAState.value = true
                         if (radioButtonAState.value){
                             radioButtonZState.value = false
                         }
@@ -67,7 +67,7 @@ fun FilterTypeView() {
                         .padding(start = 5.dp),
                     selected = radioButtonZState.value,
                     onClick = {
-                        radioButtonZState.value = !radioButtonZState.value
+                        radioButtonZState.value = true
                         if (radioButtonZState.value){
                             radioButtonAState.value = false
                         }
@@ -118,7 +118,7 @@ fun FilterTypeView() {
                         Color.Magenta
                     ),
                     onClick = {
-                        radioButtonAscendingState.value = !radioButtonAscendingState.value
+                        radioButtonAscendingState.value = true
                         if (radioButtonAscendingState.value){
                             radioButtonDescendingState.value = false
                         }
@@ -130,7 +130,7 @@ fun FilterTypeView() {
                         Color.Magenta
                     ),
                     onClick = {
-                        radioButtonDescendingState.value = !radioButtonDescendingState.value
+                        radioButtonDescendingState.value = true
                         if (radioButtonDescendingState.value){
                             radioButtonAscendingState.value = false
                         }

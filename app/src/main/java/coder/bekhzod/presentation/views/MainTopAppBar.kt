@@ -2,6 +2,8 @@ package coder.bekhzod.presentation.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -9,7 +11,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -25,16 +29,17 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import coder.bekhzod.R
+import coder.bekhzod.presentation.navigation.ScreensRouter
 import coder.bekhzod.presentation.ui.theme.fontAmidoneGrotesk
 import coder.bekhzod.presentation.utils.constants.PassDataEvents
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun MainTopAppBar() {
+fun MainTopAppBar(navController: NavController) {
     val isOpened = remember {
         mutableStateOf(false)
     }
@@ -91,46 +96,79 @@ fun MainTopAppBar() {
             contentAlignment = Alignment.TopEnd
         ) {
             IconButton(
-                onClick = {
-                @Composable
-                fun MoreFunctions() {
-                    DropdownMenu(
-                        expanded = isExpanded.value,
-                        onDismissRequest = { isExpanded.value = false }
-                    ) {
-                        DropdownMenuItem(
-                            leadingIcon = {
-                                Icon(
-                                    imageVector = Icons.Default.Edit,
-                                    contentDescription = "Edit",
-                                    tint = Color.White
-                                )
-                            },
-                            text = {
-                                Text(
-                                    text = "Edit",
-                                    fontSize = 18.sp,
-                                    color = Color.White,
-                                    fontFamily = FontFamily(fontAmidoneGrotesk)
-                                )
-                            },
-                            onClick = {  }
-                        )
-                    }
-                }
-            }) {
+                onClick = {isExpanded.value = true}) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_more),
                     tint = Color.White,
                     contentDescription = "icon more settings"
                 )
             }
+            Column(
+                modifier = Modifier,
+                verticalArrangement = Arrangement.Bottom,
+            ){
+                DropdownMenu(
+                    expanded = isExpanded.value,
+                    onDismissRequest = { isExpanded.value = false }
+                ) {
+                    DropdownMenuItem(
+                        leadingIcon = {
+                            Icon(
+                                imageVector = Icons.Default.Edit,
+                                contentDescription = "Edit",
+                                tint = Color.White
+                            )
+                        },
+                        text = {
+                            Text(
+                                text = "Edit",
+                                fontSize = 18.sp,
+                                color = Color.White,
+                                fontFamily = FontFamily(fontAmidoneGrotesk)
+                            )
+                        },
+                        onClick = {
+                            navController.navigate(ScreensRouter.DetailsScreenRoute.route)
+                        }
+                    )
+                    DropdownMenuItem(
+                        leadingIcon = {
+                            Icon(
+                                imageVector = Icons.Default.Delete,
+                                contentDescription = "Delete",
+                                tint = Color.White
+                            )
+                        },
+                        text = {
+                            Text(
+                                text = "Delete",
+                                fontSize = 18.sp,
+                                color = Color.White,
+                                fontFamily = FontFamily(fontAmidoneGrotesk)
+                            )
+                        },
+                        onClick = { /*TODO*/ }
+                    )
+                    DropdownMenuItem(
+                        leadingIcon = {
+                            Icon(
+                                imageVector = Icons.Default.Settings,
+                                contentDescription = "Settings",
+                                tint = Color.White
+                            )
+                        },
+                        text = {
+                            Text(
+                                text = "Settings",
+                                fontSize = 18.sp,
+                                color = Color.White,
+                                fontFamily = FontFamily(fontAmidoneGrotesk)
+                            )
+                        },
+                        onClick = { navController.navigate(ScreensRouter.SettingsScreenRoute.route) }
+                    )
+                }
+            }
         }
     }
-}
-
-@Preview
-@Composable
-private fun PreviewMainTopAppBar() {
-    MainTopAppBar()
 }

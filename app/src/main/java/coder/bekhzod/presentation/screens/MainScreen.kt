@@ -18,13 +18,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import coder.bekhzod.R
 import coder.bekhzod.presentation.items.MainScreenItem
 import coder.bekhzod.presentation.utils.constants.NOTES_MODEL_OBJECT
 import coder.bekhzod.presentation.views.MainTopAppBar
+import dagger.hilt.android.qualifiers.ApplicationContext
 
 @Composable
-fun MainScreen() {
+fun MainScreen(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -35,7 +37,7 @@ fun MainScreen() {
                 .background(Color.Black)
                 .border(width = 1.dp, color = Color.White)
         ) {
-            MainTopAppBar()
+            MainTopAppBar(navController)
             LazyColumn(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -60,10 +62,4 @@ fun MainScreen() {
             )
         }
     }
-}
-
-@Preview
-@Composable
-fun PreviewMainScreen() {
-    MainScreen()
 }
