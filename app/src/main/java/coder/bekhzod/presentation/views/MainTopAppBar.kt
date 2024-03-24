@@ -2,15 +2,19 @@ package coder.bekhzod.presentation.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
@@ -34,6 +38,7 @@ fun MainTopAppBar() {
     val isOpened = remember {
         mutableStateOf(false)
     }
+    val isExpanded = remember { mutableStateOf(false) }
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -85,14 +90,41 @@ fun MainTopAppBar() {
                 .fillMaxWidth(),
             contentAlignment = Alignment.TopEnd
         ) {
-            Icon(
-                painter = painterResource(id = R.drawable.ic_more),
-                modifier = Modifier.clickable {
-
-                },
-                tint = Color.White,
-                contentDescription = "icon more settings"
-            )
+            IconButton(
+                onClick = {
+                @Composable
+                fun MoreFunctions() {
+                    DropdownMenu(
+                        expanded = isExpanded.value,
+                        onDismissRequest = { isExpanded.value = false }
+                    ) {
+                        DropdownMenuItem(
+                            leadingIcon = {
+                                Icon(
+                                    imageVector = Icons.Default.Edit,
+                                    contentDescription = "Edit",
+                                    tint = Color.White
+                                )
+                            },
+                            text = {
+                                Text(
+                                    text = "Edit",
+                                    fontSize = 18.sp,
+                                    color = Color.White,
+                                    fontFamily = FontFamily(fontAmidoneGrotesk)
+                                )
+                            },
+                            onClick = {  }
+                        )
+                    }
+                }
+            }) {
+                Icon(
+                    painter = painterResource(id = R.drawable.ic_more),
+                    tint = Color.White,
+                    contentDescription = "icon more settings"
+                )
+            }
         }
     }
 }

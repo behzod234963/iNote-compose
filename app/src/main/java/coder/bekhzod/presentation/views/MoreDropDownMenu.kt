@@ -35,8 +35,8 @@ import androidx.compose.ui.unit.sp
 @Composable
 fun MoreDropDownMenu(
     onEditClick: () -> Unit,
-    onSettingsClick: () -> Unit,
-    onDeleteClick: () -> Unit,
+    onSettingsClick:  () -> Unit,
+    onDeleteClick:  () -> Unit,
 ) {
     val functionsList = mutableListOf("Edit", "Delete", "Settings")
     val isExpanded = remember { mutableStateOf(false) }
@@ -78,9 +78,9 @@ fun MoreDropDownMenu(
                     },
                     onClick = {
                         if (functionsList[i].contains("Edit")){
-                            onEditClick.invoke()
+                            onEditClick()
                         }else if (functionsList[i].contains("Delete")){
-                            onDeleteClick.invoke()
+                            onDeleteClick()
                         }else if (functionsList[i].contains("Settings")){
                             onSettingsClick.invoke()
                         }

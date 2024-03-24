@@ -4,6 +4,7 @@ import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,6 +22,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.TransformOrigin
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coder.bekhzod.R
 import coder.bekhzod.presentation.utils.constants.PassDataEvents
@@ -77,15 +79,15 @@ fun AnimatedDropDownMenu(
         }
     }
 }
-//
-//@Preview
-//@Composable
-//private fun PreviewAnimatedDropDownMenu() {
-//    Column {
-//        Box{
-//            AnimatedDropDownMenu {
-//                FilterTypeView()
-//            }
-//        }
-//    }
-//}
+
+@Preview
+@Composable
+private fun PreviewAnimatedDropDownMenu() {
+    Column {
+        Box{
+            AnimatedDropDownMenu {
+                FilterTypeView()
+            }
+        }
+    }
+}
