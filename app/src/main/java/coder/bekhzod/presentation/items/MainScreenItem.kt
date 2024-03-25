@@ -93,6 +93,8 @@ fun MainScreenItem(notesModel: NotesModel) {
                             checked = isChecked.value,
                             onCheckedChange = {
                                 isChecked.value = it
+                                notesModel.isChecked = true
+
                             },
                             colors = CheckboxDefaults.colors(Color.Red)
                         )

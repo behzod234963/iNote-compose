@@ -25,7 +25,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coder.bekhzod.R
-import coder.bekhzod.presentation.utils.constants.PassDataEvents
+import coder.bekhzod.presentation.utils.events.PassDataEvents
 
 @Composable
 fun AnimatedDropDownMenu(
