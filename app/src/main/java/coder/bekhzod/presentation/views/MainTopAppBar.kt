@@ -46,10 +46,10 @@ fun MainTopAppBar(navController: NavController) {
         ) {
             AnimatedDropDownMenu { event ->
                 when (event) {
-                    is PassDataEvents.PassStatus -> {
-                        isOpened.value = event.status
-                    }
+                    is PassDataEvents.PassStatus -> { isOpened.value = event.status }
                     is PassDataEvents.CheckedItems -> TODO()
+                    is PassDataEvents.IsSelectedStatus -> TODO()
+                    is PassDataEvents.SelectAll -> TODO()
                 }
                 Column(
                     modifier = Modifier

@@ -15,12 +15,14 @@ import coder.bekhzod.presentation.screens.EmptyMainScreen
 import coder.bekhzod.presentation.screens.MainScreen
 import coder.bekhzod.presentation.screens.SplashScreen
 import coder.bekhzod.presentation.ui.theme.INoteTheme
+import coder.bekhzod.presentation.utils.constants.NOTES_MODEL_OBJECT
+import coder.bekhzod.presentation.utils.events.PassDataEvents
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            MainScreen(NavController(this))
+            MainScreen(NavController(this), NOTES_MODEL_OBJECT)
         }
     }
 }

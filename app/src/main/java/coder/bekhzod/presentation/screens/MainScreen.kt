@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -19,7 +20,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import coder.behzod.domain.model.NotesModel
@@ -29,24 +29,30 @@ import coder.bekhzod.presentation.utils.constants.NOTES_MODEL_OBJECT
 import coder.bekhzod.presentation.utils.events.PassDataEvents
 import coder.bekhzod.presentation.views.FunctionalContextView
 import coder.bekhzod.presentation.views.MainTopAppBar
-import dagger.hilt.android.qualifiers.ApplicationContext
+import coder.bekhzod.presentation.views.SwipeToDeleteContainer
 
 @Composable
-fun MainScreen(navController: NavController,notesModel: NotesModel) {
-    val isSelected = remember{ mutableStateOf(false) }
-    val notesList:ArrayList<NotesModel> = ArrayList()
+fun MainScreen(
+    navController: NavController,
+    notesModel: NotesModel,
+) {
+    val isSelected = remember { mutableStateOf(false) }
+    val notesList = remember{
+        mutableListOf(
+            NOTES_MODEL_OBJECT,
+            NOTES_MODEL_OBJECT,
+            NOTES_MODEL_OBJECT,
+            NOTES_MODEL_OBJECT,
+            NOTES_MODEL_OBJECT,
+        )
+    }
     val objects = remember { mutableStateOf(notesModel.isChecked) }
     val checkedItems = remember { mutableListOf(notesModel.isChecked) }
-    if (objects.value){
+    if (objects.value) {
         checkedItems.add(objects.value)
     }
-    val event = PassDataEvents.CheckedItems(checkedItems)
-    notesList.add(NOTES_MODEL_OBJECT)
-    notesList.add(NOTES_MODEL_OBJECT)
-    notesList.add(NOTES_MODEL_OBJECT)
-    notesList.add(NOTES_MODEL_OBJECT)
-    notesList.add(NOTES_MODEL_OBJECT)
-    notesList.add(NOTES_MODEL_OBJECT)
+    val checkedItemsStatus = PassDataEvents.CheckedItems(checkedItems)
+    val isSelectedStatus = PassDataEvents.IsSelectedStatus(isSelected.value)
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -57,19 +63,21 @@ fun MainScreen(navController: NavController,notesModel: NotesModel) {
                 .background(Color.Black)
                 .border(width = 1.dp, color = Color.White)
         ) {
-            if (!isSelected.value){
+            if (!isSelected.value) {
                 MainTopAppBar(navController)
-            }else{
-                FunctionalContextView(model = notesModel,event)
+            } else {
+                FunctionalContextView(checkedItemsStatus, isSelectedStatus)
             }
             LazyColumn(
                 modifier = Modifier
                     .fillMaxWidth()
             ) {
-                items(notesList) {
-                    MainScreenItem(it)
-                    if (it.isChecked){
-                        objects.value = it.isChecked
+                itemsIndexed(items = notesList) {index,item->
+                    SwipeToDeleteContainer(item = item, onDelete = {
+                        notesList.remove(it)
+                        notesList.addAll(notesList)
+                    }) {
+                        MainScreenItem(notesModel = it)
                     }
                 }
             }

@@ -1,4 +1,4 @@
-package coder.bekhzod.di
+package coder.bekhzod.di.module
 
 import android.content.Context
 import androidx.navigation.NavController
