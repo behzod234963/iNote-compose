@@ -24,6 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import coder.bekhzod.presentation.navigation.ScreensRouter
 import coder.bekhzod.presentation.ui.theme.fontAmidoneGrotesk
 import coder.bekhzod.presentation.utils.events.PassDataEvents
 
@@ -47,9 +48,6 @@ fun MainTopAppBar(navController: NavController) {
             AnimatedDropDownMenu { event ->
                 when (event) {
                     is PassDataEvents.PassStatus -> { isOpened.value = event.status }
-                    is PassDataEvents.CheckedItems -> TODO()
-                    is PassDataEvents.IsSelectedStatus -> TODO()
-                    is PassDataEvents.SelectAll -> TODO()
                 }
                 Column(
                     modifier = Modifier
@@ -86,7 +84,9 @@ fun MainTopAppBar(navController: NavController) {
             contentAlignment = Alignment.CenterEnd
         ) {
             IconButton(
-                onClick = {}) {
+                onClick = {
+                    navController.navigate(ScreensRouter.SettingsScreenRoute.route)
+                }) {
                 Icon(
                     imageVector = Icons.Default.Settings,
                     tint = Color.White,

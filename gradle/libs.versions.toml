@@ -15,10 +15,12 @@ extJunitVersion = "1.1.5"
 espressoVersion = "3.5.1"
 androidTestComposeBomVersion = "2024.03.00"
 appcompatVersion = "1.6.1"
+splashScreenCoreVersion = "1.0.1"
 materialVersion = "1.11.0"
 jetbrainsKotlinJvmVersion = "1.9.0"
 
 [libraries]
+splashScreenCore = {group = "androidx.core",name = "core-splashscreen",version.ref = "splashScreenCoreVersion"}
 androidDebugTooling = {group = "androidx.compose.ui",name = "ui-tooling"}
 androidTestManifest = {group = "androidx.compose.ui",name = "ui-test-manifest"}
 uiTestJunit4 = {group = "androidx.compose.ui",name = "ui-test-junit4"}

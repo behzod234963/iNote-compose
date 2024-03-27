@@ -1,6 +1,9 @@
 package coder.bekhzod.presentation.views
 
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -11,10 +14,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coder.bekhzod.R
@@ -22,8 +23,13 @@ import coder.bekhzod.presentation.ui.theme.fontAmidoneGrotesk
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun FunctionalTopAppBar() {
+fun FunctionalTopAppBar(
+    onSave: () -> Unit,
+    onShare:()->Unit
+) {
     TopAppBar(
+        modifier = Modifier
+            .border(width = 2.dp, color = Color.White),
         colors = TopAppBarDefaults.topAppBarColors(
             containerColor = Color.Black
         ),
@@ -43,13 +49,17 @@ fun FunctionalTopAppBar() {
                 Icon(
                     tint = Color.White,
                     painter = painterResource(id = R.drawable.ic_back),
-                    contentDescription = "button back to main")
+                    contentDescription = "button back to main"
+                )
             }
         },
         actions = {
-            IconButton(onClick = {
-
-            }
+            IconButton(
+                modifier = Modifier
+                    .padding(end = 10.dp),
+                onClick = {
+                    onSave()
+                }
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.ic_save),
@@ -57,21 +67,19 @@ fun FunctionalTopAppBar() {
                     tint = Color.White
                 )
             }
-            IconButton(onClick = {
-
-            }) {
+            IconButton(
+                modifier = Modifier
+                    .padding(end = 10.dp),
+                onClick = {
+                    onShare()
+                }
+            ) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_more),
-                    contentDescription = "button more",
+                    imageVector = Icons.Default.Share,
+                    contentDescription = "button share note",
                     tint = Color.White
                 )
             }
         }
     )
-}
-
-@Preview
-@Composable
-fun PreviewFunctionalTopAppBar() {
-    FunctionalTopAppBar()
 }

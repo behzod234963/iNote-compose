@@ -71,17 +71,20 @@ dependencies {
     implementation(project(":data"))
     implementation(project(":domain"))
 
-//        Dagger Hilt
-    implementation (libs.daggerHilt)
-    kapt (libs.daggerHiltCompiler)
+    //  SplashScreen
+    implementation(libs.splashScreenCore)
 
-    //    Room Database
+    //  Dagger Hilt
+    implementation(libs.daggerHilt)
+    kapt(libs.daggerHiltCompiler)
+
+    //  Room Database
     implementation(libs.room)
     kapt(libs.roomKaptCompiler)
 
-//    Lottie animations
-    implementation (libs.lottieAnimations)
+    //  Lottie animations
+    implementation(libs.lottieAnimations)
 
-    //Navigation in compose
+    //  Navigation in compose
     implementation(libs.navigation)
 }
