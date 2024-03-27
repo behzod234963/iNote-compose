@@ -21,9 +21,11 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MenuDefaults
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
+import androidx.compose.material3.Slider
+import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
@@ -49,9 +51,11 @@ import coder.bekhzod.presentation.views.SettingsTopAppBar
 fun SettingsScreen(navController: NavController) {
     val isExpanded = remember { mutableStateOf(false) }
     val selectedItem = remember { mutableStateOf("") }
-    if (IS_DARK){
+    val state = remember { mutableFloatStateOf(0f) }
+    val fontSize = remember { mutableStateOf(18.sp) }
+    if (IS_DARK) {
         selectedItem.value = "Dark"
-    }else{
+    } else {
         selectedItem.value = "Light"
     }
     Column(
@@ -128,7 +132,7 @@ fun SettingsScreen(navController: NavController) {
                             leadingIconColor = FONT_AND_BORDER_COLOR,
                             trailingIconColor = FONT_AND_BORDER_COLOR,
 
-                        ),
+                            ),
                         leadingIcon = {
                             Icon(
                                 painter = painterResource(id = R.drawable.ic_dark),
@@ -184,6 +188,52 @@ fun SettingsScreen(navController: NavController) {
                     )
                 }
             }
+        }
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(0.25f)
+                .padding(10.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            Text(
+                text = "Font size",
+                color = FONT_AND_BORDER_COLOR,
+                fontSize = 18.sp,
+                fontFamily = FontFamily(fontAmidoneGrotesk)
+            )
+        }
+        Slider(
+            value = state.floatValue,
+            onValueChange = {
+                state.floatValue = it
+                when(state.floatValue){
+                    0f->{
+                        fontSize.value = 18.sp
+                    }1f->{
+                        fontSize.value = 25.sp
+                    }2f->{
+                        fontSize.value = 32.sp
+                    }
+                }
+            },
+            modifier = Modifier
+                .padding(horizontal = 10.dp),
+            valueRange = 0f..2f,
+            steps = 1
+        )
+        Row(
+            modifier = Modifier
+                .fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center
+        ) {
+            Text(
+                text = "Abc 123",
+                color = FONT_AND_BORDER_COLOR,
+                fontSize = fontSize.value,
+                fontFamily = FontFamily(fontAmidoneGrotesk)
+            )
         }
     }
 }
